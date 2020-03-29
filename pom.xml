@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kafkalibrary</groupId>
 	<artifactId>kafkalibrary</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<description>The Viamedia Kafka Library</description>
 
 	<parent>

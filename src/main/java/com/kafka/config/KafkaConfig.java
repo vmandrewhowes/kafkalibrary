@@ -134,7 +134,7 @@ public class KafkaConfig<T> {
 	}
 
 	@Bean
-	public KafkaMessageListenerContainer<String, T> replyContainer(ConsumerFactory<String, T> cf) {
+	public KafkaMessageListenerContainer<String, Object> replyContainer(ConsumerFactory<String, Object> cf) {
 		ContainerProperties containerProperties = new ContainerProperties(defaultSynchronousTopic);
 		return new KafkaMessageListenerContainer<>(cf, containerProperties);
 	}
