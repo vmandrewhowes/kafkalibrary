@@ -18,8 +18,8 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
+import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
-import org.springframework.kafka.listener.config.ContainerProperties;
 import org.springframework.kafka.requestreply.ReplyingKafkaTemplate;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
@@ -129,7 +129,7 @@ public class KafkaConfig<T> {
 //	##################
 	@Bean
 	public ReplyingKafkaTemplate<String, T, T> replyKafkaTemplate(ProducerFactory<String, T> pf,KafkaMessageListenerContainer<String, T> container) {
-		return new ReplyingKafkaTemplate<>(pf, container);
+		return new ReplyingKafkaTemplate<>(producerFactory(), container);
 	}
 
 	@Bean
