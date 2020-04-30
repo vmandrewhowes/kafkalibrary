@@ -74,7 +74,7 @@ public class KafkaConfig<T> {
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		
 		JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<Object>();
-		
+		jsonDeserializer.setUseTypeHeaders(false);
 		jsonDeserializer.addTrustedPackages("*");
 		
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, jsonDeserializer);
@@ -87,6 +87,7 @@ public class KafkaConfig<T> {
 		final JsonDeserializer<T> jsonDeserializer = new JsonDeserializer<>();
 
 		jsonDeserializer.addTrustedPackages("*");
+		jsonDeserializer.setUseTypeHeaders(false);
 
 		return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), jsonDeserializer);
 	}
