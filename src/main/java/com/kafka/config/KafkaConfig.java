@@ -21,6 +21,7 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
 import org.springframework.kafka.requestreply.ReplyingKafkaTemplate;
+import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
@@ -72,12 +73,14 @@ public class KafkaConfig<T> {
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, defaultSynchronousGroupId);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringJsonMessageConverter.class);
 		
-		JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<Object>();
-		jsonDeserializer.setUseTypeHeaders(false);
-		jsonDeserializer.addTrustedPackages("*");
-		
-		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, jsonDeserializer);
+//		JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<Object>(new ObjectMapper());
+//		jsonDeserializer.setUseTypeHeaders(false);
+//		jsonDeserializer.addTrustedPackages("*");
+//		
+//		
+//		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, jsonDeserializer);
 
 		return props;
 	}
