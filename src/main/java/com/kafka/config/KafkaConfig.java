@@ -71,6 +71,13 @@ public class KafkaConfig<T> {
 
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, defaultSynchronousGroupId);
+		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		
+		JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<Object>();
+		
+		jsonDeserializer.addTrustedPackages("*");
+		
+		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, jsonDeserializer);
 
 		return props;
 	}

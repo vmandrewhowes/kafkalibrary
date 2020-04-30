@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kafkalibrary</groupId>
 	<artifactId>kafkalibrary</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<description>The Viamedia Kafka Library</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.RELEASE</version>
+		<version>2.2.5.RELEASE</version>
 		<relativePath />
 	</parent>
 
@@ -25,7 +25,7 @@
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
 
-		<dependency>
+ 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
