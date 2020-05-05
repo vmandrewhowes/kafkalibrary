@@ -129,15 +129,15 @@ public class KafkaConfig<T> {
 
 //	SYNCHRONOUS CONFIG
 //	##################
-	@Bean
-	public ReplyingKafkaTemplate<String, T, T> replyKafkaTemplate(ProducerFactory<String, T> pf,KafkaMessageListenerContainer<String, T> container) {
-		return new ReplyingKafkaTemplate<>(producerFactory(), container);
-	}
-
-	@Bean
-	public KafkaMessageListenerContainer<String, Object> replyContainer(ConsumerFactory<String, Object> cf) {
-		ContainerProperties containerProperties = new ContainerProperties(defaultSynchronousTopic);
-		return new KafkaMessageListenerContainer<>(cf, containerProperties);
-	}
+//	@Bean
+//	public ReplyingKafkaTemplate<String, T, T> replyKafkaTemplate(ProducerFactory<String, T> pf,KafkaMessageListenerContainer<String, T> container) {
+//		return new ReplyingKafkaTemplate<>(producerFactory(), container);
+//	}
+//
+//	@Bean
+//	public KafkaMessageListenerContainer<String, Object> replyContainer(ConsumerFactory<String, Object> cf) {
+//		ContainerProperties containerProperties = new ContainerProperties(defaultSynchronousTopic);
+//		return new KafkaMessageListenerContainer<>(cf, containerProperties);
+//	}
 //	##################
 }
