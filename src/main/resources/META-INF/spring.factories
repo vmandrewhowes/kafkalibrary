@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kafka.config.KafkaConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.kafka.config.*

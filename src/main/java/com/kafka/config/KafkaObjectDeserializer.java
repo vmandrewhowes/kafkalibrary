@@ -10,7 +10,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.json.JSONObject;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,14 +27,14 @@ import lombok.extern.slf4j.Slf4j;
  * @author andrewhowes
  *
  */
-@Component
+@Configuration
 @Aspect
 @Slf4j
 public class KafkaObjectDeserializer {
 
-	@Bean
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Around("(execution(* *(..))) && args(object) && @annotation(KafkaMessageObject)")
+	@Bean
 	public void prepopulateHeader(ProceedingJoinPoint joinPoint, ConsumerRecord<?,?> object) {
 
 		try {
