@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,6 +38,7 @@ public class KafkaObjectDeserializer {
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
+			mapper.registerModule(new Jdk8Module());
 			LinkedHashMap<?,?> link = (LinkedHashMap<?,?>) object.value();
 			JSONObject obj = new JSONObject(link);
 
